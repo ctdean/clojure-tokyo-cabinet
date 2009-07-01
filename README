@@ -11,7 +11,7 @@ We only support the B+ Tree Database.  No transactions.
 You will need the Tokyo Cabinet Java library as well as the Tokyo
 Cabinet C library.  The tokyocabinet.jar is included in the deps
 directory and provides the hooks into the JNI library.  The JNI and C
-libraries must be build separately.
+libraries must be built separately.
 
 This code is licensed under the Eclipse Public License, see
 epl-v10.html.

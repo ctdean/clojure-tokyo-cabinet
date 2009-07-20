@@ -10,7 +10,7 @@
 (defn file-expand-string
   "Returns a file name by replacing all / and \\ with
   File/separatorChar.  Replaces ~ at the start of the path with the
-  user.home system property."  
+  user.home system property.  From duck-streams"
   [#^String s]
   (let [s (.replace s \/ File/separatorChar)
         s (.replace s \\ File/separatorChar)

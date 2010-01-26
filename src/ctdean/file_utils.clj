@@ -3,27 +3,18 @@
 ;;;;
 ;;;; Chris Dean
 
-(ns clojure.contrib.file-utils
-  (:use clojure.contrib.java-utils)
+(ns ctdean.file-utils
+  (:use (clojure.contrib duck-streams java-utils))
   (:import [java.io File]))
 
-(defn file-expand-string
-  "Returns a file name by replacing all / and \\ with
-  File/separatorChar.  Replaces ~ at the start of the path with the
-  user.home system property.  From duck-streams"
-  [#^String s]
-  (let [s (.replace s \/ File/separatorChar)
-        s (.replace s \\ File/separatorChar)
-        s (if (.startsWith s "~")
-              (str (System/getProperty "user.home")
-                   File/separatorChar (subs s 1))
-              s)]
-    s))
+;;;
+;;; File utils
+;;;
 
 (defmulti file-expand type)
 (defmethod file-expand String [s]
-  (new File (file-expand-string s)))
-(defmethod file-expand File [f] 
+  (file-str s))
+(defmethod file-expand java.io.File [f] 
   f)
 
 (defn file-basename [file]
@@ -31,6 +22,9 @@
 
 (defn file-abs-path [file]
   (.getAbsolutePath (file-expand file)))
+
+(defn file-path [file]
+  (.getPath (file-expand file)))
 
 (defn file-extension [file]
   (let [basename (file-basename file)
@@ -40,6 +34,12 @@
 
 (defn file-exists? [file]
   (.isFile (file-expand file)))
+
+(defn dir-exists? [dir]
+  (.isDirectory (file-expand dir)))
+
+(defn file-mv [src dest]
+  (.renameTo (file-expand src) (file-expand dest)))
 
 (defn file-rm [file]
   (.delete (file-expand file)))

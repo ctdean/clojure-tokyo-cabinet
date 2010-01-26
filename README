@@ -1,10 +1,10 @@
 
-An interface to Tokyo Cabinet.  Tokyo Cabinet is a modern
-implementation of DBM, similar in spirit to Berkeley DB.  See
+An interface to Tokyo Cabinet and Tokyo Tyrant.  Tokyo Cabinet is a
+modern implementation of DBM, similar in spirit to Berkeley DB.  See
 http://tokyocabinet.sourceforge.net/
 
 No documentation.
-One small test.
+A few test.
 
 We only support the B+ Tree Database.  No transactions.
 

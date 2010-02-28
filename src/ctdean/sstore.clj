@@ -17,6 +17,15 @@
   (print-dup (str o) w)
   (.write w ")"))
 
+(defmethod print-dup clojure.lang.MapEntry [o, #^Writer w]
+  (.write w "#=(")
+  (.write w (.getName #^Class (class o)))
+  (.write w ". ")
+  (print-dup (key o) w)
+  (.write w " ")
+  (print-dup (val o) w)
+  (.write w ")"))
+
 (defn to-sstore [obj]
   (binding [*print-dup* true]
     (with-out-str 

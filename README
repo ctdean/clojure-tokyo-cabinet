@@ -1,7 +1,7 @@
 
 An interface to Tokyo Cabinet and Tokyo Tyrant.  Tokyo Cabinet is a
 modern implementation of DBM, similar in spirit to Berkeley DB.  See
-http://tokyocabinet.sourceforge.net/
+http://1978th.net/tokyocabinet/
 
 No documentation.
 A few test.
@@ -9,9 +9,16 @@ A few test.
 We only support the B+ Tree Database.  No transactions.
 
 You will need the Tokyo Cabinet Java library as well as the Tokyo
-Cabinet C library.  The tokyocabinet.jar is included in the deps
-directory and provides the hooks into the JNI library.  The JNI and C
-libraries must be built separately.
+Cabinet C library.  The jar libraries can be downloaded using lein (or
+your favorite maven tool).  The JNI and C libraries must be built
+separately.
+
+To use, just put all the jars in your CLASSPATH and make sure the jni
+shared library is installed properly.
+
+The jni bindings can be downloaded from
+http://1978th.net/tokyocabinet/javapkg/ with supporting docs in
+http://1978th.net/tokyocabinet/javadoc/
 
 This code is licensed under the Eclipse Public License, see
 epl-v10.html.
@@ -21,3 +28,4 @@ deps directory for that.
 
 - Chris Dean
   30 June 2009
+  ctdean@sokitomi.com

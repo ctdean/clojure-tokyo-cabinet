@@ -11,9 +11,26 @@
 ;;; File utils
 ;;;
 
+(defn #^File file-str-2
+  "Concatenates args as strings and returns a java.io.File.  Replaces
+   all / and \\ with File/separatorChar.  Replaces ~ at the start of
+   the path with the user.home system property.
+
+   This is a copy of the unreleased v1.2 in
+   clojure.contrib.io/file-str"
+  [& args]
+  (let [#^String s (apply str args)
+        s (.replace s \\ File/separatorChar)
+        s (.replace s \/ File/separatorChar)
+        s (if (.startsWith s "~")
+              (str (System/getProperty "user.home")
+                   File/separator (subs s 1))
+              s)]
+    (File. s)))
+
 (defmulti file-expand type)
 (defmethod file-expand String [s]
-  (file-str s))
+  (file-str-2 s))
 (defmethod file-expand java.io.File [f] 
   f)
 

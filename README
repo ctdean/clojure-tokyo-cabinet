@@ -4,7 +4,6 @@ modern implementation of DBM, similar in spirit to Berkeley DB.  See
 http://1978th.net/tokyocabinet/
 
 No documentation.
-A few test.
 
 We only support the B+ Tree Database.  No transactions.
 

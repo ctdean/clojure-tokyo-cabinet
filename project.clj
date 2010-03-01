@@ -1,4 +1,4 @@
-(defproject org.clojars.ctdean/clojure-tokyocabinet "0.5.1"
+(defproject org.clojars.ctdean/clojure-tokyocabinet "0.5.3"
   :dependencies [[org.clojure/clojure "1.1.0"]
                  [org.clojure/clojure-contrib "1.1.0"]
                  [org.clojars.ctdean/tokyocabinet "1.22.0"]
